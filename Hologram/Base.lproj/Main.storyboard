@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T7o-HA-wdO">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--ARView-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" userLabel="ARView" customClass="PlaybackViewController" customModule="Hologram" customModuleProvider="target" sceneMemberID="viewController">
+                    <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="RLX-Iv-KsO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </arscnView>
+                    <navigationItem key="navigationItem" id="EK0-vo-9ht"/>
+                    <connections>
+                        <outlet property="sceneView" destination="RLX-Iv-KsO" id="pRy-iE-b3b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="984" y="-540"/>
+        </scene>
+        <!--Recording View Controller-->
+        <scene sceneID="PMj-uh-2t2">
+            <objects>
+                <viewController id="T7o-HA-wdO" customClass="RecordingViewController" customModule="Hologram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gh3-Uu-ibJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ShS-Ty-txv">
+                                <rect key="frame" x="0.0" y="44" width="414" height="552"/>
+                                <color key="backgroundColor" red="0.86274509799999999" green="0.63529411759999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ShS-Ty-txv" secondAttribute="height" multiplier="3:4" priority="750" id="S8H-2A-zZ7"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieR-WG-ePb">
+                                <rect key="frame" x="183" y="790.5" width="48" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="Ld4-Tf-Tda"/>
+                                    <constraint firstAttribute="width" secondItem="ieR-WG-ePb" secondAttribute="height" multiplier="1:1" id="UII-Pe-tx3"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="camera.circle" catalog="system"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="fhB-s8-VMt" firstAttribute="bottom" secondItem="ieR-WG-ePb" secondAttribute="bottom" constant="24" id="NhF-bP-obA"/>
+                            <constraint firstItem="ShS-Ty-txv" firstAttribute="trailing" secondItem="fhB-s8-VMt" secondAttribute="trailing" id="c35-z1-Sg3"/>
+                            <constraint firstItem="fhB-s8-VMt" firstAttribute="top" secondItem="ShS-Ty-txv" secondAttribute="top" id="dsS-G6-gdA"/>
+                            <constraint firstItem="ieR-WG-ePb" firstAttribute="centerX" secondItem="fhB-s8-VMt" secondAttribute="centerX" id="f5C-GS-gSe"/>
+                            <constraint firstItem="ShS-Ty-txv" firstAttribute="width" secondItem="ShS-Ty-txv" secondAttribute="height" multiplier="3:4" priority="750" id="fq1-XT-U2h"/>
+                            <constraint firstItem="ShS-Ty-txv" firstAttribute="width" secondItem="ShS-Ty-txv" secondAttribute="height" multiplier="3:4" priority="750" id="z0N-iD-wb3"/>
+                            <constraint firstItem="ShS-Ty-txv" firstAttribute="leading" secondItem="fhB-s8-VMt" secondAttribute="leading" id="z5z-gW-qkC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fhB-s8-VMt"/>
+                    </view>
+                    <connections>
+                        <outlet property="recordButton" destination="ieR-WG-ePb" id="J6m-wc-jBZ"/>
+                        <outlet property="videoPreview" destination="ShS-Ty-txv" id="3Pm-tN-lUY"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="ARPreview" id="S3V-4H-Ncp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wuj-eN-xuz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="157" y="-540"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="camera.circle" catalog="system" width="64" height="60"/>
+    </resources>
+</document>
